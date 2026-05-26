@@ -49,14 +49,14 @@ const Home = () => {
             <div className="text-2xl font-bold text-[#1D1D1F]">SR Enterprises</div>
             
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#products" className="text-[#1D1D1F] hover:text-[#0071E3] transition-colors text-[17px]">Products</a>
-              <a href="#why-us" className="text-[#1D1D1F] hover:text-[#0071E3] transition-colors text-[17px]">Why Us</a>
-              <a href="#factory" className="text-[#1D1D1F] hover:text-[#0071E3] transition-colors text-[17px]">Factory</a>
-              <a href="#testimonials" className="text-[#1D1D1F] hover:text-[#0071E3] transition-colors text-[17px]">Reviews</a>
-              <a href="#contact" className="text-[#1D1D1F] hover:text-[#0071E3] transition-colors text-[17px]">Contact</a>
+              <a href="#products" className="text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Products</a>
+              <a href="#why-us" className="text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Why Us</a>
+              <a href="#factory" className="text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Factory</a>
+              <a href="#testimonials" className="text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Reviews</a>
+              <a href="#contact" className="text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Contact</a>
               <Button 
                 onClick={() => window.open(`https://wa.me/${contactInfo.whatsapp}`, '_blank')}
-                className="bg-[#0071E3] hover:bg-[#0077ED] text-white rounded-full px-6 py-2.5 text-[17px] font-medium transition-all"
+                className="bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full px-6 py-2.5 text-[17px] font-medium transition-all"
               >
                 Order on WhatsApp
               </Button>
@@ -72,14 +72,14 @@ const Home = () => {
 
           {mobileMenuOpen && (
             <div className="md:hidden mt-4 pb-4 space-y-4">
-              <a href="#products" className="block text-[#1D1D1F] hover:text-[#0071E3] transition-colors text-[17px]">Products</a>
-              <a href="#why-us" className="block text-[#1D1D1F] hover:text-[#0071E3] transition-colors text-[17px]">Why Us</a>
-              <a href="#factory" className="block text-[#1D1D1F] hover:text-[#0071E3] transition-colors text-[17px]">Factory</a>
-              <a href="#testimonials" className="block text-[#1D1D1F] hover:text-[#0071E3] transition-colors text-[17px]">Reviews</a>
-              <a href="#contact" className="block text-[#1D1D1F] hover:text-[#0071E3] transition-colors text-[17px]">Contact</a>
+              <a href="#products" className="block text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Products</a>
+              <a href="#why-us" className="block text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Why Us</a>
+              <a href="#factory" className="block text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Factory</a>
+              <a href="#testimonials" className="block text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Reviews</a>
+              <a href="#contact" className="block text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Contact</a>
               <Button 
                 onClick={() => window.open(`https://wa.me/${contactInfo.whatsapp}`, '_blank')}
-                className="w-full bg-[#0071E3] hover:bg-[#0077ED] text-white rounded-full px-6 py-2.5 text-[17px] font-medium"
+                className="w-full bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full px-6 py-2.5 text-[17px] font-medium"
               >
                 Order on WhatsApp
               </Button>
@@ -90,12 +90,12 @@ const Home = () => {
 
       <section className="pt-32 pb-20 px-6 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto text-center">
-          <div className="inline-block mb-4 px-4 py-2 bg-[#0071E3]/10 rounded-full">
-            <span className="text-[#0071E3] font-semibold text-sm">India's #1 Chair Manufacturer</span>
+          <div className="inline-block mb-4 px-4 py-2 bg-[#1D1D1F] rounded-full">
+            <span className="text-white font-semibold text-sm">India's #1 Chair Manufacturer</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-bold text-[#1D1D1F] mb-6 leading-tight">
-            Crafted for Comfort.<br />
-            <span className="text-[#0071E3]">Built for Business.</span>
+            Crafted for <span className="text-[#6E6E73]">Comfort.</span><br />
+            Built for <span className="text-[#6E6E73]">Business.</span>
           </h1>
           <p className="text-xl md:text-2xl text-[#6E6E73] mb-10 max-w-3xl mx-auto">
             Direct from factory. Premium quality chairs for offices, schools, and institutions — delivered pan-India.
@@ -103,13 +103,13 @@ const Home = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               onClick={() => window.open(`https://wa.me/${contactInfo.whatsapp}`, '_blank')}
-              className="bg-[#0071E3] hover:bg-[#0077ED] text-white rounded-full px-8 py-6 text-lg font-medium transition-all shadow-lg hover:shadow-xl"
+              className="bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full px-8 py-6 text-lg font-medium transition-all shadow-lg hover:shadow-xl"
             >
               Order on WhatsApp
             </Button>
             <Button 
               variant="outline"
-              className="border-2 border-[#0071E3] text-[#0071E3] hover:bg-[#0071E3] hover:text-white rounded-full px-8 py-6 text-lg font-medium transition-all"
+              className="border-2 border-[#1D1D1F] text-[#1D1D1F] hover:bg-[#1D1D1F] hover:text-white rounded-full px-8 py-6 text-lg font-medium transition-all"
             >
               Download Catalogue
             </Button>
@@ -133,13 +133,13 @@ const Home = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full">
-                    <span className="text-xs font-semibold text-[#0071E3]">{product.category}</span>
+                    <span className="text-xs font-semibold text-[#1D1D1F]">{product.category}</span>
                   </div>
                 </div>
                 <CardContent className="p-6">
                   <h3 className="text-2xl font-bold text-[#1D1D1F] mb-2">{product.title}</h3>
                   <p className="text-[#6E6E73] mb-4">{product.description}</p>
-                  <button className="flex items-center text-[#0071E3] hover:text-[#0077ED] font-medium group/btn">
+                  <button className="flex items-center text-[#1D1D1F] hover:text-[#6E6E73] font-medium group/btn">
                     Learn more
                     <ChevronRight className="ml-1 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                   </button>
@@ -185,8 +185,8 @@ const Home = () => {
       <section id="factory" className="py-20 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <div className="inline-block mb-4 px-4 py-2 bg-[#0071E3]/10 rounded-full">
-              <span className="text-[#0071E3] font-semibold">Factory Tour</span>
+            <div className="inline-block mb-4 px-4 py-2 bg-gray-100 rounded-full">
+              <span className="text-[#1D1D1F] font-semibold">Factory Tour</span>
             </div>
             <h2 className="text-5xl font-bold text-[#1D1D1F] mb-4">See how your chair is born.</h2>
             <p className="text-xl text-[#6E6E73]">Inside our 15,000 sq.ft production facility</p>
@@ -248,14 +248,14 @@ const Home = () => {
             <Card className="border-0 shadow-2xl rounded-3xl p-8 md:p-12">
               <div className="flex mb-4">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-6 h-6 fill-[#0071E3] text-[#0071E3]" />
+                  <Star key={i} className="w-6 h-6 fill-[#1D1D1F] text-[#1D1D1F]" />
                 ))}
               </div>
               <p className="text-2xl text-[#1D1D1F] mb-8 leading-relaxed">
                 "{testimonials[currentTestimonial].text}"
               </p>
               <div className="flex items-center">
-                <div className="w-14 h-14 rounded-full bg-[#0071E3] flex items-center justify-center text-white font-bold text-xl mr-4">
+                <div className="w-14 h-14 rounded-full bg-[#1D1D1F] flex items-center justify-center text-white font-bold text-xl mr-4">
                   {testimonials[currentTestimonial].initials}
                 </div>
                 <div>
@@ -271,7 +271,7 @@ const Home = () => {
                   key={index}
                   onClick={() => setCurrentTestimonial(index)}
                   className={`w-3 h-3 rounded-full transition-all ${
-                    index === currentTestimonial ? 'bg-[#0071E3] w-8' : 'bg-gray-300'
+                    index === currentTestimonial ? 'bg-[#1D1D1F] w-8' : 'bg-gray-300'
                   }`}
                 />
               ))}
@@ -302,7 +302,7 @@ const Home = () => {
                     <Phone className="w-5 h-5 text-[#6E6E73] mr-3 mt-1" />
                     <div>
                       <div className="text-sm text-[#6E6E73] mb-1">Phone</div>
-                      <a href={`tel:+91${contactInfo.phone}`} className="text-[17px] text-[#1D1D1F] font-medium hover:text-[#0071E3] transition-colors">
+                      <a href={`tel:+91${contactInfo.phone}`} className="text-[17px] text-[#1D1D1F] font-medium hover:text-[#6E6E73] transition-colors">
                         +91-{contactInfo.phone}
                       </a>
                     </div>
@@ -314,7 +314,7 @@ const Home = () => {
                     <Mail className="w-5 h-5 text-[#6E6E73] mr-3 mt-1" />
                     <div>
                       <div className="text-sm text-[#6E6E73] mb-1">Email</div>
-                      <a href={`mailto:${contactInfo.email}`} className="text-[17px] text-[#1D1D1F] font-medium hover:text-[#0071E3] transition-colors">
+                      <a href={`mailto:${contactInfo.email}`} className="text-[17px] text-[#1D1D1F] font-medium hover:text-[#6E6E73] transition-colors">
                         {contactInfo.email}
                       </a>
                     </div>
@@ -334,7 +334,7 @@ const Home = () => {
 
               <Button 
                 onClick={() => window.open(`https://www.google.com/maps/search/?api=1&query=Shikrapur+Pune`, '_blank')}
-                className="mt-10 bg-[#0071E3] hover:bg-[#0077ED] text-white rounded-full px-7 py-6 text-[17px] font-medium transition-all shadow-md hover:shadow-lg"
+                className="mt-10 bg-[#1D1D1F] hover:bg-[#2D2D2F] text-white rounded-full px-7 py-6 text-[17px] font-medium transition-all shadow-md hover:shadow-lg"
               >
                 Get Directions
               </Button>

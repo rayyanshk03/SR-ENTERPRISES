@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, MapPin, Phone, Mail, Clock, ChevronRight, Star } from 'lucide-react';
+import { Menu, X, MapPin, Phone, Mail, Clock, ChevronRight, Star, Instagram, Facebook, MessageCircle } from 'lucide-react';
 import { products, features, stats, factoryImages, clients, testimonials, contactInfo } from '../data/mock';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
@@ -370,40 +370,126 @@ const Home = () => {
         </div>
       </section>
 
-      <footer className="bg-[#1D1D1F] text-white py-12 px-6">
+      <footer
+        data-testid="site-footer"
+        className="bg-black text-white"
+        style={{ padding: '80px 40px 40px' }}
+      >
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          {/* Top row - 4 columns */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+            {/* Col 1: Logo + description */}
             <div>
-              <h3 className="text-xl font-bold mb-4">SR Enterprises</h3>
-              <p className="text-gray-400">India's leading chair manufacturer since 2010.</p>
+              <h3 className="text-xl font-bold text-white mb-4">SR Enterprises</h3>
+              <p className="text-[14px] text-[#6E6E73] leading-relaxed">
+                India's leading chair manufacturer.<br />
+                Crafted for comfort. Built for business.
+              </p>
             </div>
+
+            {/* Col 2: Products */}
             <div>
-              <h4 className="font-semibold mb-4">Products</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Office Chairs</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">School Chairs</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Custom Solutions</a></li>
+              <h4 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Products</h4>
+              <ul className="space-y-3">
+                <li><a href="#products" className="text-[14px] text-[#6E6E73] hover:text-[#F5F5F7] transition-colors duration-200">Office Chairs</a></li>
+                <li><a href="#products" className="text-[14px] text-[#6E6E73] hover:text-[#F5F5F7] transition-colors duration-200">School Chairs</a></li>
+                <li><a href="#products" className="text-[14px] text-[#6E6E73] hover:text-[#F5F5F7] transition-colors duration-200">Custom Chairs</a></li>
+                <li><a href="#products" className="text-[14px] text-[#6E6E73] hover:text-[#F5F5F7] transition-colors duration-200">Packaging Materials</a></li>
+                <li><a href="#products" className="text-[14px] text-[#6E6E73] hover:text-[#F5F5F7] transition-colors duration-200">Office Materials</a></li>
               </ul>
             </div>
+
+            {/* Col 3: Company */}
             <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Factory Tour</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
+              <h4 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Company</h4>
+              <ul className="space-y-3">
+                <li><a href="#why-us" className="text-[14px] text-[#6E6E73] hover:text-[#F5F5F7] transition-colors duration-200">About</a></li>
+                <li><a href="#instagram-feed" className="text-[14px] text-[#6E6E73] hover:text-[#F5F5F7] transition-colors duration-200">Gallery</a></li>
+                <li><a href="#catalogue" className="text-[14px] text-[#6E6E73] hover:text-[#F5F5F7] transition-colors duration-200">Catalogue</a></li>
+                <li><a href="#contact" className="text-[14px] text-[#6E6E73] hover:text-[#F5F5F7] transition-colors duration-200">Contact</a></li>
               </ul>
             </div>
+
+            {/* Col 4: Contact */}
             <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>+91-{contactInfo.phone}</li>
-                <li>{contactInfo.email}</li>
-                <li>{contactInfo.address}</li>
+              <h4 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Contact</h4>
+              <ul className="space-y-3">
+                <li>
+                  <a href={`tel:+91${contactInfo.phone}`} className="text-[14px] text-[#6E6E73] hover:text-[#F5F5F7] transition-colors duration-200">
+                    +91-{contactInfo.phone}
+                  </a>
+                </li>
+                <li>
+                  <a href={`mailto:${contactInfo.email}`} className="text-[14px] text-[#6E6E73] hover:text-[#F5F5F7] transition-colors duration-200">
+                    {contactInfo.email}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={`https://wa.me/${contactInfo.whatsapp}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[14px] text-[#6E6E73] hover:text-[#F5F5F7] transition-colors duration-200"
+                  >
+                    WhatsApp Us
+                  </a>
+                </li>
+                <li className="text-[14px] text-[#6E6E73] leading-relaxed">
+                  {contactInfo.address}<br />
+                  Maharashtra, India
+                </li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 SR Enterprises. All rights reserved.</p>
+
+          {/* Divider */}
+          <div
+            style={{
+              height: '1px',
+              backgroundColor: 'rgba(255,255,255,0.1)',
+              margin: '40px 0',
+            }}
+          />
+
+          {/* Bottom row */}
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p className="text-[12px] text-[#6E6E73]">
+              &copy; 2024 SR Enterprises. All rights reserved.
+            </p>
+
+            {/* Social icons */}
+            <div className="flex items-center gap-5">
+              <a
+                href="https://www.instagram.com/nestby_sr/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                data-testid="footer-social-instagram"
+                className="text-[#6E6E73] hover:text-[#F5F5F7] transition-colors duration-200"
+              >
+                <Instagram size={20} strokeWidth={1.5} />
+              </a>
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                data-testid="footer-social-facebook"
+                className="text-[#6E6E73] hover:text-[#F5F5F7] transition-colors duration-200"
+              >
+                <Facebook size={20} strokeWidth={1.5} />
+              </a>
+              <a
+                href={`https://wa.me/${contactInfo.whatsapp}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                data-testid="footer-social-whatsapp"
+                className="text-[#6E6E73] hover:text-[#F5F5F7] transition-colors duration-200"
+              >
+                <MessageCircle size={20} strokeWidth={1.5} />
+              </a>
+            </div>
           </div>
         </div>
       </footer>

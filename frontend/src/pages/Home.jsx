@@ -3,6 +3,7 @@ import { Menu, X, MapPin, Phone, Mail, Clock, ChevronRight, Star } from 'lucide-
 import { products, features, stats, factoryImages, clients, testimonials, contactInfo } from '../data/mock';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
+import WhatsAppButton from '../components/WhatsAppButton';
 
 const Home = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -395,6 +396,9 @@ const Home = () => {
           </div>
         </div>
       </footer>
+
+      {/* Floating WhatsApp Button */}
+      <WhatsAppButton phoneNumber={contactInfo.whatsapp} />
     </div>
   );
 };

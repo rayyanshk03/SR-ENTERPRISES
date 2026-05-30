@@ -37,6 +37,38 @@ html {
   animation: scroll 20s linear infinite;
 }
 
+/* WhatsApp button pulse animation */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s infinite;
+}
+
+/* Slide-up animation for popup banner */
+@keyframes slide-up {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.4s ease-out forwards;
+}
+
 button, a {
   transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
 }

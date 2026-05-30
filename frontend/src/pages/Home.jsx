@@ -6,6 +6,7 @@ import { Card, CardContent } from '../components/ui/card';
 import WhatsAppButton from '../components/WhatsAppButton';
 import BulkEnquiryForm from '../components/BulkEnquiryForm';
 import InstagramFeed from '../components/InstagramFeed';
+import CatalogueDownload from '../components/CatalogueDownload';
 
 const Home = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -114,6 +115,7 @@ const Home = () => {
             </Button>
             <Button 
               variant="outline"
+              onClick={() => document.querySelector('#catalogue')?.scrollIntoView({ behavior: 'smooth' })}
               className="border-2 border-[#1D1D1F] text-[#1D1D1F] hover:bg-[#1D1D1F] hover:text-white rounded-full px-8 py-6 text-lg font-medium transition-all"
             >
               Download Catalogue
@@ -287,7 +289,9 @@ const Home = () => {
 
       <BulkEnquiryForm phoneNumber={contactInfo.whatsapp} />
 
-      <InstagramFeed />
+      <CatalogueDownload whatsappNumber={contactInfo.whatsapp} />
+
+      <InstagramFeed handle="nestby_sr" profileUrl="https://www.instagram.com/nestby_sr/" />
 
       <section id="contact" className="py-20 px-10 bg-white">
         <div className="max-w-7xl mx-auto">

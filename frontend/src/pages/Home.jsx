@@ -7,11 +7,14 @@ import WhatsAppButton from '../components/WhatsAppButton';
 import BulkEnquiryForm from '../components/BulkEnquiryForm';
 import InstagramFeed from '../components/InstagramFeed';
 import CatalogueDownload from '../components/CatalogueDownload';
+import Reveal from '../components/Reveal';
+import { useParallax } from '../hooks/useScrollReveal';
 
 const Home = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [animatedStats, setAnimatedStats] = useState(stats.map(() => 0));
+  const parallaxFactory = useParallax(0.18);
 
   useEffect(() => {
     const timers = stats.map((stat, index) => {
@@ -50,25 +53,25 @@ const Home = () => {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200">
         <nav className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="text-2xl font-bold text-[#1D1D1F]">SR Enterprises</div>
+            <div className="text-2xl font-bold text-[#1D1D1F] logo-fade-in">SR Enterprises</div>
             
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#products" className="text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Products</a>
-              <a href="#why-us" className="text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Why Us</a>
-              <a href="#factory" className="text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Factory</a>
-              <a href="#testimonials" className="text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Reviews</a>
-              <a href="#bulk-enquiry" className="text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Bulk Order</a>
-              <a href="#contact" className="text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Contact</a>
+            <div className="hidden lg:flex items-center space-x-8">
+              <a href="#products" className="nav-slide-down text-[#1D1D1F] hover:text-[#6E6E73] text-[17px]">Products</a>
+              <a href="#why-us" className="nav-slide-down text-[#1D1D1F] hover:text-[#6E6E73] text-[17px]">Why Us</a>
+              <a href="#factory" className="nav-slide-down text-[#1D1D1F] hover:text-[#6E6E73] text-[17px]">Factory</a>
+              <a href="#testimonials" className="nav-slide-down text-[#1D1D1F] hover:text-[#6E6E73] text-[17px]">Reviews</a>
+              <a href="#bulk-enquiry" className="nav-slide-down text-[#1D1D1F] hover:text-[#6E6E73] text-[17px]">Bulk Order</a>
+              <a href="#contact" className="nav-slide-down text-[#1D1D1F] hover:text-[#6E6E73] text-[17px]">Contact</a>
               <Button 
                 onClick={() => window.open(`https://wa.me/${contactInfo.whatsapp}`, '_blank')}
-                className="bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full px-6 py-2.5 text-[17px] font-medium transition-all"
+                className="nav-slide-down bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full px-6 py-2.5 text-[17px] font-medium"
               >
                 Order on WhatsApp
               </Button>
             </div>
 
             <button 
-              className="md:hidden text-[#1D1D1F]"
+              className="lg:hidden text-[#1D1D1F]"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -76,7 +79,7 @@ const Home = () => {
           </div>
 
           {mobileMenuOpen && (
-            <div className="md:hidden mt-4 pb-4 space-y-4">
+            <div className="lg:hidden mt-4 pb-4 space-y-4">
               <a href="#products" className="block text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Products</a>
               <a href="#why-us" className="block text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Why Us</a>
               <a href="#factory" className="block text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Factory</a>
@@ -94,43 +97,43 @@ const Home = () => {
         </nav>
       </header>
 
-      <section className="pt-32 pb-20 px-6 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="pt-28 md:pt-32 pb-16 md:pb-20 px-6 bg-gradient-to-b from-gray-50 to-white">
+        <Reveal as="div" stagger className="max-w-7xl mx-auto text-center">
           <div className="inline-block mb-4 px-4 py-2 bg-[#1D1D1F] rounded-full">
             <span className="text-white font-semibold text-sm">India's #1 Chair Manufacturer</span>
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-[#1D1D1F] mb-6 leading-tight">
+          <h1 className="text-[48px] md:text-7xl font-bold text-[#1D1D1F] mb-6 leading-tight">
             Crafted for <span className="text-[#6E6E73]">Comfort.</span><br />
             Built for <span className="text-[#6E6E73]">Business.</span>
           </h1>
-          <p className="text-xl md:text-2xl text-[#6E6E73] mb-10 max-w-3xl mx-auto">
+          <p className="text-lg md:text-2xl text-[#6E6E73] mb-10 max-w-3xl mx-auto">
             Direct from factory. Premium quality chairs for offices, schools, and institutions — delivered pan-India.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               onClick={() => window.open(`https://wa.me/${contactInfo.whatsapp}`, '_blank')}
-              className="bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full px-8 py-6 text-lg font-medium transition-all shadow-lg hover:shadow-xl"
+              className="w-full sm:w-auto bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full px-8 py-6 text-lg font-medium transition-all shadow-lg hover:shadow-xl"
             >
               Order on WhatsApp
             </Button>
             <Button 
               variant="outline"
               onClick={() => document.querySelector('#catalogue')?.scrollIntoView({ behavior: 'smooth' })}
-              className="border-2 border-[#1D1D1F] text-[#1D1D1F] hover:bg-[#1D1D1F] hover:text-white rounded-full px-8 py-6 text-lg font-medium transition-all"
+              className="w-full sm:w-auto border-2 border-[#1D1D1F] text-[#1D1D1F] hover:bg-[#1D1D1F] hover:text-white rounded-full px-8 py-6 text-lg font-medium transition-all"
             >
               Download Catalogue
             </Button>
           </div>
-        </div>
+        </Reveal>
       </section>
 
-      <section id="products" className="py-20 px-6 bg-white">
+      <section id="products" className="py-[60px] md:py-20 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-[#1D1D1F] mb-4">Products</h2>
-            <p className="text-2xl text-[#6E6E73]">Every chair. Every need.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <Reveal className="text-center mb-12 md:mb-16">
+            <h2 className="text-[36px] md:text-5xl font-bold text-[#1D1D1F] mb-4 leading-tight">Products</h2>
+            <p className="text-lg md:text-2xl text-[#6E6E73]">Every chair. Every need.</p>
+          </Reveal>
+          <Reveal as="div" stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product) => (
               <Card key={product.id} className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 rounded-3xl">
                 <div className="relative overflow-hidden h-64">
@@ -153,53 +156,53 @@ const Home = () => {
                 </CardContent>
               </Card>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      <section id="why-us" className="py-20 px-6 bg-gray-50">
+      <section id="why-us" className="py-[60px] md:py-20 px-6 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-[#1D1D1F] mb-4">Why 500+ businesses choose us.</h2>
-            <p className="text-2xl text-[#6E6E73]">Direct from the manufacturer. No middlemen. No compromises.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <Reveal className="text-center mb-12 md:mb-16">
+            <h2 className="text-[36px] md:text-5xl font-bold text-[#1D1D1F] mb-4 leading-tight">Why 500+ businesses choose us.</h2>
+            <p className="text-lg md:text-2xl text-[#6E6E73]">Direct from the manufacturer. No middlemen. No compromises.</p>
+          </Reveal>
+          <Reveal as="div" stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature) => (
               <div key={feature.id} className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-lg transition-all duration-300">
                 <h3 className="text-2xl font-bold text-[#1D1D1F] mb-3">{feature.title}</h3>
                 <p className="text-[#6E6E73] text-lg">{feature.description}</p>
               </div>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-[#1D1D1F] text-white">
+      <section className="py-[60px] md:py-20 px-6 bg-[#1D1D1F] text-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+          <Reveal as="div" stagger className="grid grid-cols-1 sm:grid-cols-3 gap-10 md:gap-12 text-center">
             {stats.map((stat, index) => (
               <div key={stat.id}>
-                <div className="text-6xl font-bold mb-2">
+                <div className="text-5xl md:text-6xl font-bold mb-2">
                   {animatedStats[index]}{stat.suffix}
                 </div>
-                <div className="text-xl text-gray-400">{stat.label}</div>
+                <div className="text-lg md:text-xl text-gray-400">{stat.label}</div>
               </div>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      <section id="factory" className="py-20 px-6 bg-white">
+      <section id="factory" className="py-[60px] md:py-20 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <Reveal className="text-center mb-12 md:mb-16">
             <div className="inline-block mb-4 px-4 py-2 bg-gray-100 rounded-full">
               <span className="text-[#1D1D1F] font-semibold">Factory Tour</span>
             </div>
-            <h2 className="text-5xl font-bold text-[#1D1D1F] mb-4">See how your chair is born.</h2>
-            <p className="text-xl text-[#6E6E73]">Inside our 15,000 sq.ft production facility</p>
-          </div>
+            <h2 className="text-[36px] md:text-5xl font-bold text-[#1D1D1F] mb-4 leading-tight">See how your chair is born.</h2>
+            <p className="text-lg md:text-xl text-[#6E6E73]">Inside our 15,000 sq.ft production facility</p>
+          </Reveal>
           
-          <div className="mb-16 rounded-3xl overflow-hidden shadow-2xl max-w-5xl mx-auto">
+          <Reveal className="mb-16 rounded-3xl overflow-hidden shadow-2xl max-w-5xl mx-auto">
             <div className="relative" style={{ paddingBottom: '56.25%' }}>
               <iframe
                 className="absolute top-0 left-0 w-full h-full"
@@ -210,9 +213,38 @@ const Home = () => {
                 allowFullScreen
               ></iframe>
             </div>
+          </Reveal>
+
+          {/* Full-width factory photo with parallax */}
+          <div
+            className="relative overflow-hidden rounded-3xl shadow-2xl mb-16"
+            style={{ height: 'clamp(280px, 50vh, 500px)' }}
+            data-testid="parallax-factory"
+          >
+            <div
+              ref={parallaxFactory.ref}
+              className="absolute inset-0"
+              style={{
+                ...parallaxFactory.style,
+                top: '-15%',
+                bottom: '-15%',
+                height: '130%',
+              }}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1716643863806-989dd76ae093?crop=entropy&cs=srgb&fm=jpg&w=2000&q=85"
+                alt="Factory floor wide view"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 text-white">
+              <p className="text-sm font-semibold uppercase tracking-wider opacity-80 mb-2">15,000 sq.ft</p>
+              <h3 className="text-3xl md:text-4xl font-bold">Where every chair begins.</h3>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <Reveal as="div" stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {factoryImages.map((image) => (
               <div key={image.id} className="relative overflow-hidden rounded-2xl shadow-lg group">
                 <img 
@@ -225,15 +257,15 @@ const Home = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      <section className="py-16 px-6 bg-gray-50 overflow-hidden">
-        <div className="max-w-7xl mx-auto mb-8 text-center">
-          <h2 className="text-4xl font-bold text-[#1D1D1F] mb-2">Trusted across India.</h2>
-          <p className="text-xl text-[#6E6E73]">From schools in Kerala to corporates in Mumbai.</p>
-        </div>
+      <section className="py-[60px] md:py-16 px-6 bg-gray-50 overflow-hidden">
+        <Reveal className="max-w-7xl mx-auto mb-8 text-center">
+          <h2 className="text-[32px] md:text-4xl font-bold text-[#1D1D1F] mb-2 leading-tight">Trusted across India.</h2>
+          <p className="text-base md:text-xl text-[#6E6E73]">From schools in Kerala to corporates in Mumbai.</p>
+        </Reveal>
         <div className="relative">
           <div className="flex animate-scroll space-x-12">
             {[...clients, ...clients].map((client, index) => (
@@ -245,20 +277,20 @@ const Home = () => {
         </div>
       </section>
 
-      <section id="testimonials" className="py-20 px-6 bg-white">
+      <section id="testimonials" className="py-[60px] md:py-20 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-[#1D1D1F] mb-4">What our clients say</h2>
-          </div>
+          <Reveal className="text-center mb-12 md:mb-16">
+            <h2 className="text-[36px] md:text-5xl font-bold text-[#1D1D1F] mb-4 leading-tight">What our clients say</h2>
+          </Reveal>
           
-          <div className="relative">
-            <Card className="border-0 shadow-2xl rounded-3xl p-8 md:p-12">
+          <Reveal className="relative">
+            <Card className="border-0 shadow-2xl rounded-3xl p-6 md:p-12">
               <div className="flex mb-4">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-6 h-6 fill-[#1D1D1F] text-[#1D1D1F]" />
+                  <Star key={i} className="w-5 h-5 md:w-6 md:h-6 fill-[#1D1D1F] text-[#1D1D1F]" />
                 ))}
               </div>
-              <p className="text-2xl text-[#1D1D1F] mb-8 leading-relaxed">
+              <p className="text-lg md:text-2xl text-[#1D1D1F] mb-8 leading-relaxed">
                 "{testimonials[currentTestimonial].text}"
               </p>
               <div className="flex items-center">
@@ -283,7 +315,7 @@ const Home = () => {
                 />
               ))}
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -293,11 +325,11 @@ const Home = () => {
 
       <InstagramFeed handle="nestby_sr" profileUrl="https://www.instagram.com/nestby_sr/" />
 
-      <section id="contact" className="py-20 px-10 bg-white">
+      <section id="contact" className="py-[60px] md:py-20 px-6 md:px-10 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
             <div>
-              <h2 className="text-[40px] font-bold text-[#1D1D1F] mb-12">Visit our showroom.</h2>
+              <h2 className="text-[36px] md:text-[40px] font-bold text-[#1D1D1F] mb-10 md:mb-12 leading-tight">Visit our showroom.</h2>
               <div className="space-y-8">
                 <div>
                   <div className="flex items-start mb-2">
@@ -353,7 +385,7 @@ const Home = () => {
             </div>
 
             <div>
-              <div className="rounded-3xl overflow-hidden h-[400px] shadow-lg">
+              <div className="rounded-3xl overflow-hidden h-[300px] md:h-[400px] shadow-lg">
                 <iframe
                   src={contactInfo.mapUrl}
                   width="100%"
@@ -372,8 +404,7 @@ const Home = () => {
 
       <footer
         data-testid="site-footer"
-        className="bg-black text-white"
-        style={{ padding: '80px 40px 40px' }}
+        className="bg-black text-white px-6 md:px-10 pt-[60px] md:pt-20 pb-10"
       >
         <div className="max-w-7xl mx-auto">
           {/* Top row - 4 columns */}

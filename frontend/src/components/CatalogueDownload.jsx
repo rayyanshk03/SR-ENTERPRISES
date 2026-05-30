@@ -40,8 +40,7 @@ const CatalogueDownload = ({
     <section
       id="catalogue"
       data-testid="catalogue-section"
-      className="bg-[#F5F5F7]"
-      style={{ padding: '120px 40px' }}
+      className="bg-[#F5F5F7] py-[60px] md:py-[120px] px-6 md:px-10"
     >
       <div
         className="mx-auto text-center"

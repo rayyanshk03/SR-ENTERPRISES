@@ -42,11 +42,10 @@ const BulkEnquiryForm = ({ phoneNumber = "917387076969" }) => {
     <section
       id="bulk-enquiry"
       data-testid="bulk-enquiry-section"
-      className="bg-[#F5F5F7]"
-      style={{ padding: '120px 40px' }}
+      className="bg-[#F5F5F7] py-[60px] md:py-[120px] px-6 md:px-10"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-start">
           {/* Left Column - 40% */}
           <div className="lg:col-span-2">
             <div
@@ -55,10 +54,10 @@ const BulkEnquiryForm = ({ phoneNumber = "917387076969" }) => {
             >
               Bulk Orders
             </div>
-            <h2 className="text-[40px] md:text-[48px] font-bold text-[#1D1D1F] leading-tight mb-6">
+            <h2 className="text-[36px] md:text-[48px] font-bold text-[#1D1D1F] leading-tight mb-6">
               Let's talk quantity.
             </h2>
-            <p className="text-[17px] text-[#6E6E73] leading-relaxed mb-6">
+            <p className="text-base md:text-[17px] text-[#6E6E73] leading-relaxed mb-6">
               Minimum 10 units. Special pricing above 50 units. Get a customized
               quote within 2 hours on WhatsApp.
             </p>
@@ -73,9 +72,8 @@ const BulkEnquiryForm = ({ phoneNumber = "917387076969" }) => {
             <form
               onSubmit={handleSubmit}
               data-testid="bulk-enquiry-form"
-              className="bg-white rounded-3xl"
+              className="bg-white rounded-3xl p-6 md:p-12"
               style={{
-                padding: '48px',
                 boxShadow: '0 2px 20px rgba(0,0,0,0.06)',
               }}
             >

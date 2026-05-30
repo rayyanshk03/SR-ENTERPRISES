@@ -23,8 +23,7 @@ const InstagramFeed = ({ handle = "srenterprises", profileUrl = "https://www.ins
     <section
       id="instagram-feed"
       data-testid="instagram-section"
-      className="bg-black"
-      style={{ padding: '120px 40px' }}
+      className="bg-black py-[60px] md:py-[120px] px-6 md:px-10"
     >
       <div className="max-w-7xl mx-auto">
         {/* Headline */}
@@ -57,7 +56,7 @@ const InstagramFeed = ({ handle = "srenterprises", profileUrl = "https://www.ins
 
         {/* Photo Grid */}
         <div
-          className="grid grid-cols-2 md:grid-cols-4"
+          className="grid grid-cols-2 lg:grid-cols-4"
           style={{ gap: '4px' }}
           data-testid="instagram-photo-grid"
         >

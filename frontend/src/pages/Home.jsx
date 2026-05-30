@@ -5,6 +5,7 @@ import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import WhatsAppButton from '../components/WhatsAppButton';
 import BulkEnquiryForm from '../components/BulkEnquiryForm';
+import InstagramFeed from '../components/InstagramFeed';
 
 const Home = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -285,6 +286,8 @@ const Home = () => {
       </section>
 
       <BulkEnquiryForm phoneNumber={contactInfo.whatsapp} />
+
+      <InstagramFeed />
 
       <section id="contact" className="py-20 px-10 bg-white">
         <div className="max-w-7xl mx-auto">

@@ -4,6 +4,7 @@ import { products, features, stats, factoryImages, clients, testimonials, contac
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import WhatsAppButton from '../components/WhatsAppButton';
+import BulkEnquiryForm from '../components/BulkEnquiryForm';
 
 const Home = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -54,6 +55,7 @@ const Home = () => {
               <a href="#why-us" className="text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Why Us</a>
               <a href="#factory" className="text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Factory</a>
               <a href="#testimonials" className="text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Reviews</a>
+              <a href="#bulk-enquiry" className="text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Bulk Order</a>
               <a href="#contact" className="text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Contact</a>
               <Button 
                 onClick={() => window.open(`https://wa.me/${contactInfo.whatsapp}`, '_blank')}
@@ -77,6 +79,7 @@ const Home = () => {
               <a href="#why-us" className="block text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Why Us</a>
               <a href="#factory" className="block text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Factory</a>
               <a href="#testimonials" className="block text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Reviews</a>
+              <a href="#bulk-enquiry" className="block text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Bulk Order</a>
               <a href="#contact" className="block text-[#1D1D1F] hover:text-[#6E6E73] transition-colors text-[17px]">Contact</a>
               <Button 
                 onClick={() => window.open(`https://wa.me/${contactInfo.whatsapp}`, '_blank')}
@@ -281,12 +284,13 @@ const Home = () => {
         </div>
       </section>
 
+      <BulkEnquiryForm phoneNumber={contactInfo.whatsapp} />
+
       <section id="contact" className="py-20 px-10 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
               <h2 className="text-[40px] font-bold text-[#1D1D1F] mb-12">Visit our showroom.</h2>
-              
               <div className="space-y-8">
                 <div>
                   <div className="flex items-start mb-2">

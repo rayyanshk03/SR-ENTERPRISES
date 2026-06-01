@@ -3,20 +3,67 @@ import { CheckCircle2 } from 'lucide-react';
 
 const CatalogueDownload = ({
   whatsappNumber = "917387076969",
-  // Replace with your real Google Drive PDF link
-  pdfUrl = "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID",
+  pdfUrl = "/XPERT_ZZONE.pdf",
 }) => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
+  const [rotate, setRotate] = useState({ x: 4, y: -8 });
+  const [isHovering, setIsHovering] = useState(false);
+  const [glare, setGlare] = useState({ x: 50, y: 50, opacity: 0 });
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const xc = rect.width / 2;
+    const yc = rect.height / 2;
+    const dx = x - xc;
+    const dy = y - yc;
+    
+    // Smooth, realistic tilt max angles
+    const rotateY = (dx / xc) * 16;
+    const rotateX = -(dy / yc) * 16;
+    
+    setRotate({ x: rotateX, y: rotateY });
+    
+    const glareX = (x / rect.width) * 100;
+    const glareY = (y / rect.height) * 100;
+    setGlare({ x: glareX, y: glareY, opacity: 0.35 });
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+    setRotate({ x: 4, y: -8 });
+    setGlare(prev => ({ ...prev, opacity: 0 }));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // 0. Save lead to backend Excel log
+    fetch('http://localhost:8000/api/enquiry', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        source: 'Catalogue Download',
+        name: name,
+        phone: phone,
+      }),
+    }).catch((err) => console.error('Failed to log lead to Excel:', err));
 
     // 1. Trigger PDF download
     const link = document.createElement('a');
     link.href = pdfUrl;
-    link.download = 'SR-Enterprises-Catalogue.pdf';
+    link.download = 'XPERT-ZZONE.pdf';
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
     document.body.appendChild(link);
@@ -84,17 +131,34 @@ const CatalogueDownload = ({
           }}
         >
           <div
-            className="relative rounded-2xl overflow-hidden bg-white"
+            className="relative rounded-2xl overflow-hidden bg-white cursor-pointer select-none"
+            onMouseMove={handleMouseMove}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             style={{
-              transform: 'rotateY(-8deg) rotateX(4deg)',
+              transform: `rotateY(${rotate.y}deg) rotateX(${rotate.x}deg) scale(${isHovering ? 1.04 : 1})`,
+              transition: isHovering 
+                ? 'transform 0.1s cubic-bezier(0.25, 1, 0.5, 1)' 
+                : 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)',
               transformStyle: 'preserve-3d',
-              boxShadow: '0 40px 80px rgba(0,0,0,0.12)',
+              boxShadow: isHovering 
+                ? '0 50px 100px rgba(0,0,0,0.18)' 
+                : '0 40px 80px rgba(0,0,0,0.12)',
               aspectRatio: '3 / 4',
             }}
           >
+            {/* Premium Glare / Spotlight Reflection */}
+            <div
+              className="absolute inset-0 pointer-events-none z-10 transition-opacity duration-300"
+              style={{
+                background: `radial-gradient(circle at ${glare.x}% ${glare.y}%, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 65%)`,
+                opacity: glare.opacity,
+              }}
+            />
+
             {/* Catalogue cover content */}
             <div className="absolute inset-0 flex flex-col justify-between p-8 bg-gradient-to-br from-[#1D1D1F] to-[#2D2D2F] text-white">
-              <div>
+              <div style={{ transform: 'translateZ(30px)' }}>
                 <div
                   className="text-xs font-semibold uppercase opacity-70"
                   style={{ letterSpacing: '0.12em' }}
@@ -105,11 +169,11 @@ const CatalogueDownload = ({
                   SR<br />Enterprises
                 </div>
               </div>
-              <div>
+              <div style={{ transform: 'translateZ(20px)' }}>
                 <img
                   src="https://images.unsplash.com/photo-1688578735427-994ecdea3ea4?crop=entropy&cs=srgb&fm=jpg&w=400&q=80"
                   alt="Chair preview"
-                  className="w-full h-44 object-cover rounded-xl opacity-90"
+                  className="w-full h-44 object-cover rounded-xl opacity-90 shadow-md"
                 />
                 <div className="text-sm mt-4 opacity-70">
                   Crafted for Comfort. Built for Business.

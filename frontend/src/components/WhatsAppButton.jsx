@@ -31,10 +31,18 @@ const WhatsAppButton = ({ phoneNumber = "917387076969" }) => {
       {showPopup && (
         <div
           data-testid="whatsapp-popup-banner"
-          className="fixed bottom-[100px] right-[28px] z-[9999] bg-white rounded-2xl px-5 py-4 max-w-[280px] animate-slide-up"
           style={{
-            boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
+            position: 'fixed',
+            bottom: '100px',
+            right: '24px',
+            zIndex: 9999,
+            background: '#fff',
+            borderRadius: '16px',
+            padding: '16px',
+            boxShadow: '0 4px 20px rgba(0,0,0,0.12)',
+            maxWidth: '280px',
           }}
+          className="animate-slide-up"
         >
           <button
             data-testid="whatsapp-popup-close"
@@ -58,7 +66,7 @@ const WhatsAppButton = ({ phoneNumber = "917387076969" }) => {
       )}
 
       {/* Floating WhatsApp Button */}
-      <div className="fixed bottom-[28px] right-[28px] z-[10000]">
+      <div style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 999 }}>
         {/* Tooltip */}
         {showTooltip && (
           <div

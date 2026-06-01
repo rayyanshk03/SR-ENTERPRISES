@@ -20,6 +20,24 @@ const BulkEnquiryForm = ({ phoneNumber = "917387076969" }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // 0. Save lead to backend Excel log
+    fetch('http://localhost:8000/api/enquiry', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        source: 'Bulk Enquiry',
+        name: formData.fullName,
+        phone: formData.phone,
+        company: formData.company,
+        city: formData.city,
+        category: formData.category,
+        quantity: String(formData.quantity),
+        message: formData.message,
+      }),
+    }).catch((err) => console.error('Failed to log lead to Excel:', err));
+
     // Build WhatsApp pre-filled message
     const messageLines = [
       `*Bulk Enquiry from ${formData.fullName || 'a customer'}*`,
